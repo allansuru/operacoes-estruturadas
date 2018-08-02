@@ -12,7 +12,7 @@ export class ServicosService {
   }
 
   getCalendarButerfly() {
-    return this.db.list('/CalendarButterFly');
+    return this.db.list('/CalendarButterfly');
   }
 
 }

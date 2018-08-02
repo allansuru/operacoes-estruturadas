@@ -8,10 +8,12 @@ export const environment = {
   firebase: {
     apiKey: 'AIzaSyCEBfGsNc-jfhz_JT-xu8G7egL8iDC3Xgk',
     authDomain: 'operacoes-estruturadas.firebaseapp.com',
-    databaseURL: 'https://operacoes-estruturadas.firebaseio.com',
+    databaseURL: 'https://opes-54f1d.firebaseio.com',
     projectId: 'operacoes-estruturadas',
     storageBucket: 'operacoes-estruturadas.appspot.com',
     messagingSenderId: '486632331455'
   }
 
 };
+
+    // databaseURL: 'https://operacoes-estruturadas.firebaseio.com

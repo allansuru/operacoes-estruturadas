@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.servicos.getAll().subscribe(d => {
+    this.servicos.getCalendarButerfly().subscribe(d => {
       this.dados = d;
       console.log('Dados: ', this.dados);
     });
