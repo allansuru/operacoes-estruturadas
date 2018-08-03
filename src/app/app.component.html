@@ -55,9 +55,23 @@
           <div class="col-md">
           <div class="card mt-4">
               <div class="card-body">
-                  <mat-tab-group>
+                  <mat-tab-group #tabGroup (selectedTabChange)="tabChanged($event)">
                       <mat-tab label="Butterfly"> Content 1 </mat-tab>
-                      <mat-tab label="Calendar Butterfly"> Content 2 </mat-tab>
+                      <mat-tab label="Calendar Butterfly">
+                        <div class="calendar-butterfly">
+                              <div class="row polaroid">
+                                <div class="col-md">{{ serie }}</div>
+                                <div class="col-md">Montagem</div>
+                                <div class="col-md">Preço Atual</div>
+                                <div class="col-md">Desmontagem</div>
+                                <div class="col-md">Parâmetro Montagem</div>
+                              </div>
+                              <br>
+                            </div>
+                            <ul class="list-group col-md" *ngFor='let strike of strikes'>
+                                <li class="list-group-item">{{ strike }}</li>
+                              </ul>
+                        </mat-tab>
                       <mat-tab label="Ratio Temporal"> Content 3 </mat-tab>
                     </mat-tab-group>
 
