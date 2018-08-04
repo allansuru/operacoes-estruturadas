@@ -1,14 +1,18 @@
 .row {
     position: relative;
-    top: 70px !important;
 }
 .calendar-butterfly {
     position: relative;
-    height: 120px;
+    /* height: 120px; */
 }
 .polaroid {
     border: 1px solid #4C3C1B;
     padding: 8px 80px 8px 8px;
     border-right-style: solid;
     border-right-width: 0px;
+}
+
+
+ /deep/ .mat-tab-body-content {
+    overflow: hidden;
 }
