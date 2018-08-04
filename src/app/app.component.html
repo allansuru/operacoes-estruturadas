@@ -60,51 +60,72 @@
                 <div class="calendar-butterfly">
                   <div class="row polaroid">
                     <div class="col-md">
-                      {{ serie }}
+                   <span class="serie">{{ serie }}</span>   
                     </div>
-                    <div class="col-md">Montagem</div>
-                    <div class="col-md">Preço Atual Entrada</div>
-                    <div class="col-md">Desmontagem</div>
-                    <div class="col-md">Preço Atual Saída</div>
-                    <div class="col-md">Parâmetro Montagem</div>
+                    <div class="col-md"><span class="coluna">Montagem</span></div>
+                    <div class="col-md"><span class="coluna">Preço Atual Entrada</span></div>
+                    <div class="col-md"><span class="coluna">Desmontagem</span></div>
+                    <div class="col-md"><span class="coluna">Preço Atual Saída</span></div>
+                    <div class="col-md"><span class="coluna param">Parâmetro Montagem</span></div>
                   </div>
                   <br>
                 </div>
                 <div class="row">
                   <div class="col-md">
                     <ng-container *ngFor='let strike of strikes;let i = index'>
-                      {{ strike }}
-                      <br *ngIf="(i+1)%3==0">
+                   <span class="strike">   {{ strike }} </span>
+                   <br *ngIf="(i+1)%3==0">
+                   <!-- <br> -->
                     </ng-container>
                   </div>
                   <div class="col-md">
                     <ng-container *ngFor='let montagem of montagens;let i = index'>
-                      {{ montagem }}
+                    <span class="montagem" *ngIf="i===0"><small> + 1 x </small>{{ montagem }}</span>
+                    <span class="montagem" *ngIf="i===1"><small> - 2 x </small>{{ montagem }}</span>
+                    <span class="montagem" *ngIf="i===2"><small> + 1 x </small>{{ montagem }}</span>      
                       <br *ngIf="(i+1)%3==0">
+                      <!-- <br> -->
                     </ng-container>
                   </div>
                   <div class="col-md">
                     <ng-container *ngFor='let preco of precosEntrada;let i = index'>
-                      {{ preco }}
-                      <br *ngIf="(i+1)%3==0">
+                    <span class="preco-danger">- {{ preco }} </span>
+             
+                      <p>
+                          <span class="badge badge-pill badge-danger">Pagar</span>
+                      </p>
+
                     </ng-container>
                   </div>
                   <div class="col-md">
                     <ng-container *ngFor='let desmontagem of desmontagens;let i = index'>
-                        {{ desmontagem }}
-                        <br *ngIf="(i+1)%3==0">
+                        <span class="desmontagem" *ngIf="i===0"><small> - 1 x </small>{{ desmontagem }}</span>
+                        <span class="desmontagem" *ngIf="i===1"><small> + 2 x </small>{{ desmontagem }}</span>
+                        <span class="desmontagem" *ngIf="i===2"><small> - 1 x </small>{{ desmontagem }}</span>      
+                          <br *ngIf="(i+1)%3==0">
+                          <!-- <br> -->
                     </ng-container>
                   </div>
                   <div class="col-md">
                       <ng-container *ngFor='let preco of precosSaida;let i = index'>
-                          {{ preco }}
+                          <span class="preco-sucesso"> +  {{ preco }} </span>
+                          <br >
+                          <p>
+                              <span class="badge badge-pill badge-success">Receber</span>
+                          </p>
                           <br *ngIf="(i+1)%3==0">
+                          <br>
                       </ng-container>
                     </div>
                     <div class="col-md">
                         <ng-container *ngFor='let pam of parametroMontagem;let i = index'>
-                            {{ pam }}
+                            <span class="preco-montagem"> -  {{ pam }} </span>
+                            <br>
+                            <p>
+                                <span class="badge badge-pill badge-info">Pagar</span>
+                            </p>
                             <br *ngIf="(i+1)%3==0">
+                            <br>
                         </ng-container>
                       </div>
                 </div>
