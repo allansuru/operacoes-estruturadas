@@ -78,7 +78,7 @@ export class AppComponent implements OnInit {
   filtrarDesmontagem(desmontagem) {
     desmontagem.filter(des => {
       this.desmontagens.push(des.asa_inferior.Valor_Ask);
-      this.desmontagens.push(des.miolo.Valor_Bidk);
+      this.desmontagens.push(des.miolo.Valor_Bid);
       this.desmontagens.push(des.asa_superior.Valor_Ask);
     });
   }
