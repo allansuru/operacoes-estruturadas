@@ -1,3 +1,123 @@
-<p>
-  calendar-butterfly works!
-</p>
+<div class="calendar-butterfly">
+    <div class="row">
+        <div class="col-md m-4">
+          <mat-radio-group 
+          [(ngModel)]="serie"
+          (change)="changeSerie($event)">
+            <mat-radio-button value="H/I">H/I</mat-radio-button>
+            <mat-radio-button value="I/J">I/J</mat-radio-button>
+            <mat-radio-button value="J/K">J/K</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="col-md m-4">
+            <mat-checkbox>Mostras somente strikes</mat-checkbox>
+        </div>
+      </div>
+  <div class="row polaroid">
+    <div class="col-md">
+   <span class="serie">{{ serie }}</span>   
+    </div>
+    <div class="col-md">
+    </div>
+    <div class="col-md"><span class="coluna">Montagem</span></div>
+    <div class="col-md"><span class="coluna">Preço Atual Entrada</span></div>
+    <div class="col-md"><span class="coluna">Desmontagem</span></div>
+    <div class="col-md"><span class="coluna">Preço Atual Saída</span></div>
+    <div class="col-md"><span class="coluna param">Parâmetro Montagem</span></div>
+  </div>
+  <br>
+</div>
+<div class="row">
+  <div class="col-md">
+    <ng-container *ngFor='let strike of strikes;let i = index'>
+   <span class="strike">   {{ strike }} </span>
+   <br>
+   <br>
+   <hr class="hr-first"  *ngIf="(i+1)%3==0">
+    </ng-container>
+  </div>
+  <div class="col-md">
+      <ng-container *ngFor='let quadrados of dados_aux; let i = index'>
+    <div  class="row">
+      <div class="quadrado">
+        <span class="quadrado-1"><small class="small-1">-1</small></span>
+        <p class="petrh185">PETRH{{ dados[i]?.asa_inferior.Strike}}</p>
+      </div>
+      <div class="quadrado">
+      </div>
+     </div>
+     <div  class="row">
+        <div class="quadrado">
+        </div>
+        <div class="quadrado">
+            <span class="quadrado-1"><small class="small-1">+2</small></span>
+            <p class="petrh185">PETRI{{dados[i]?.miolo.Strike}}</p>
+        </div>
+       </div>
+       <div  class="row">
+          <div class="quadrado">
+              <span class="quadrado-1"><small class="small-1">-1</small></span>
+              <p class="petrh185">PETRH{{dados[i]?.asa_superior.Strike}}</p>
+          </div>
+          <div class="quadrado">
+          </div>
+         </div>
+         <hr class="hr-second">
+        </ng-container>
+  </div>
+  <div class="col-md">
+    <ng-container *ngFor='let montagem of montagens;let i = index'>
+    <span class="montagem">{{ montagem }}</span>
+    <br>
+    <br>
+    <hr  *ngIf="(i+1)%3==0">
+    </ng-container>
+  </div>
+  <div class="col-md">
+    <ng-container *ngFor='let preco of precosEntrada;let i = index'>
+      <br>
+      <br>
+  <span class="preco-danger">- {{ preco }} </span>
+  <br>
+    <span class="badge badge-pill badge-danger">Pagar</span>
+    <br>
+    <br>
+    <br>
+    <hr>
+    </ng-container>
+  </div>
+  <div class="col-md">
+    <ng-container *ngFor='let desmontagem of desmontagens;let i = index'>
+        <span class="desmontagem">{{ desmontagem }}</span>
+      <br>
+      <br>
+      <hr  *ngIf="(i+1)%3==0">
+    </ng-container>
+  </div>
+  <div class="col-md">
+      <ng-container *ngFor='let preco of precosSaida;let i = index'>
+        <br>
+        <br>
+          <span class="preco-sucesso"> +  {{ preco }} </span>
+          <br>
+          <span class="badge badge-pill badge-success">Receber</span>
+          <br>
+          <br>
+          <br>
+          <hr>
+      </ng-container>
+    </div>
+    <div class="col-md">
+        <ng-container *ngFor='let pam of parametroMontagem;let i = index'>
+          <br>
+          <br>
+            <span class="preco-montagem"> -  {{ pam }} </span>
+            <br>
+            <span class="badge badge-pill badge-info">Pagar</span>
+            <br>
+            <br>
+            <br>
+            <hr>
+        </ng-container>
+      </div>
+</div>
