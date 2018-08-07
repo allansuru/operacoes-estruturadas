@@ -63,9 +63,9 @@ export class AppComponent implements OnInit {
 
   filtrarMontagem(montagem) {
     montagem.filter(m => {
-      this.montagens.push(m.asa_inferior.Valor_Bid);
-      this.montagens.push(m.miolo.Valor_Ask);
-      this.montagens.push(m.asa_superior.Valor_Bid);
+      this.montagens.push('+ 1 x' + m.asa_inferior.Valor_Bid);
+      this.montagens.push('- 2 x' + m.miolo.Valor_Ask);
+      this.montagens.push('+ 1 x' + m.asa_superior.Valor_Bid);
     });
   }
 
@@ -77,9 +77,9 @@ export class AppComponent implements OnInit {
 
   filtrarDesmontagem(desmontagem) {
     desmontagem.filter(des => {
-      this.desmontagens.push(des.asa_inferior.Valor_Ask);
-      this.desmontagens.push(des.miolo.Valor_Bid);
-      this.desmontagens.push(des.asa_superior.Valor_Ask);
+      this.desmontagens.push('-1 x' + des.asa_inferior.Valor_Ask);
+      this.desmontagens.push('+ 2 x' + des.miolo.Valor_Bid);
+      this.desmontagens.push('- 1 x' + des.asa_superior.Valor_Ask);
     });
   }
 

@@ -62,6 +62,8 @@
                     <div class="col-md">
                    <span class="serie">{{ serie }}</span>   
                     </div>
+                    <div class="col-md">
+                    </div>
                     <div class="col-md"><span class="coluna">Montagem</span></div>
                     <div class="col-md"><span class="coluna">Preço Atual Entrada</span></div>
                     <div class="col-md"><span class="coluna">Desmontagem</span></div>
@@ -74,58 +76,93 @@
                   <div class="col-md">
                     <ng-container *ngFor='let strike of strikes;let i = index'>
                    <span class="strike">   {{ strike }} </span>
-                   <br *ngIf="(i+1)%3==0">
-                   <!-- <br> -->
+                   <br>
+                   <br>
+                   <hr class="hr-first"  *ngIf="(i+1)%3==0">
                     </ng-container>
                   </div>
                   <div class="col-md">
+                      <ng-container *ngFor='let quadrados of dados; let i = index'>
+                    <div  class="row">
+                      <div class="quadrado">
+                        <span class="quadrado-1"><small class="small-1">-1</small></span>
+                        <p class="petrh185">PETRH{{ dados[i]?.asa_inferior.Strike}}</p>
+                      </div>
+                      <div class="quadrado">
+                      </div>
+                     </div>
+                     <div  class="row">
+                        <div class="quadrado">
+                        </div>
+                        <div class="quadrado">
+                            <span class="quadrado-1"><small class="small-1">+2</small></span>
+                            <p class="petrh185">PETRI{{dados[i]?.miolo.Strike}}</p>
+                        </div>
+                       </div>
+                       <div  class="row">
+                          <div class="quadrado">
+                              <span class="quadrado-1"><small class="small-1">-1</small></span>
+                              <p class="petrh185">PETRH{{dados[i]?.asa_superior.Strike}}</p>
+                          </div>
+                          <div class="quadrado">
+                          </div>
+                         </div>
+                         <hr class="hr-second">
+                        </ng-container>
+                  </div>
+                  <div class="col-md">
                     <ng-container *ngFor='let montagem of montagens;let i = index'>
-                    <span class="montagem" *ngIf="i===0"><small> + 1 x </small>{{ montagem }}</span>
-                    <span class="montagem" *ngIf="i===1"><small> - 2 x </small>{{ montagem }}</span>
-                    <span class="montagem" *ngIf="i===2"><small> + 1 x </small>{{ montagem }}</span>      
-                      <br *ngIf="(i+1)%3==0">
-                      <!-- <br> -->
+                    <span class="montagem">{{ montagem }}</span>
+                    <br>
+                    <br>
+                    <hr  *ngIf="(i+1)%3==0">
                     </ng-container>
                   </div>
                   <div class="col-md">
                     <ng-container *ngFor='let preco of precosEntrada;let i = index'>
-                    <span class="preco-danger">- {{ preco }} </span>
-             
-                      <p>
-                          <span class="badge badge-pill badge-danger">Pagar</span>
-                      </p>
-
+                      <br>
+                      <br>
+                  <span class="preco-danger">- {{ preco }} </span>
+                  <br>
+                    <span class="badge badge-pill badge-danger">Pagar</span>
+                    <br>
+                    <br>
+                    <br>
+                    <hr>
                     </ng-container>
                   </div>
                   <div class="col-md">
                     <ng-container *ngFor='let desmontagem of desmontagens;let i = index'>
-                        <span class="desmontagem" *ngIf="i===0"><small> - 1 x </small>{{ desmontagem }}</span>
-                        <span class="desmontagem" *ngIf="i===1"><small> + 2 x </small>{{ desmontagem }}</span>
-                        <span class="desmontagem" *ngIf="i===2"><small> - 1 x </small>{{ desmontagem }}</span>      
-                          <br *ngIf="(i+1)%3==0">
-                          <!-- <br> -->
+                        <span class="desmontagem">{{ desmontagem }}</span>
+                      <br>
+                      <br>
+                      <hr  *ngIf="(i+1)%3==0">
                     </ng-container>
                   </div>
                   <div class="col-md">
                       <ng-container *ngFor='let preco of precosSaida;let i = index'>
+                        <br>
+                        <br>
                           <span class="preco-sucesso"> +  {{ preco }} </span>
-                          <br >
-                          <p>
-                              <span class="badge badge-pill badge-success">Receber</span>
-                          </p>
-                          <br *ngIf="(i+1)%3==0">
                           <br>
+                          <span class="badge badge-pill badge-success">Receber</span>
+                          <br>
+                          <br>
+                          <br>
+                          <hr>
                       </ng-container>
                     </div>
                     <div class="col-md">
                         <ng-container *ngFor='let pam of parametroMontagem;let i = index'>
+                          <br>
+                          <br>
                             <span class="preco-montagem"> -  {{ pam }} </span>
                             <br>
-                            <p>
-                                <span class="badge badge-pill badge-info">Pagar</span>
-                            </p>
-                            <br *ngIf="(i+1)%3==0">
+                            <span class="badge badge-pill badge-info">Pagar</span>
                             <br>
+                            <br>
+                            <br>
+                            <hr>
                         </ng-container>
                       </div>
                 </div>
