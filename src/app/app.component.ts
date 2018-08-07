@@ -13,7 +13,8 @@ import { CalendarButerfly } from './models/calendar-butterfly';
 export class AppComponent implements OnInit {
 
   dados: CalendarButerfly[];
-  serie = '';
+  dados_aux: CalendarButerfly[] = [];
+  serie = 'H/I';
   strikes: any[] = [];
   montagens: any[] = [];
   precosEntrada: any[] = [];
@@ -22,10 +23,14 @@ export class AppComponent implements OnInit {
   parametroMontagem: any[] = [];
 
 
-  constructor(private servicos: ServicosService) {
+  constructor(public servicos: ServicosService) {
   }
 
   ngOnInit() {
+    // this.servicos.getAll()
+    // .subscribe(x => console.log('ALL', x));
+    // this.servicos.getButterfly()
+    // .subscribe(x => console.log('Butterfly', x));
   }
   tabChanged = (tabChangeEvent: MatTabChangeEvent): void => {
     // console.log('tabChangeEvent => ', tabChangeEvent);
@@ -40,16 +45,30 @@ export class AppComponent implements OnInit {
   this.limpaDados();
     this.servicos.getCalendarButerfly()
     .subscribe((d: CalendarButerfly[]) => {
-      this.dados = d.slice(0, 10);
-      this.serie = d[0].Serie;
+      this.dados = d; // All
+    //  this.serie = d[0].Serie;
       console.log('Dados: ', this.dados);
       console.log('Serie: ', this.serie);
-      this.filtrarStrike(this.dados);
-      this.filtrarMontagem(this.dados);
-      this.filtrarPrecoAtual(this.dados);
-      this.filtrarDesmontagem(this.dados);
-      this.filtrarPrecosSaida(this.dados);
-      this.filtrarParametroMontagem(this.dados);
+      this.filtrarSerie(d);
+      console.log('Dados filtrados: ', this.dados_aux);
+      this.filtros();
+    });
+  }
+
+  private filtros() {
+    this.filtrarStrike(this.dados_aux);
+    this.filtrarMontagem(this.dados_aux);
+    this.filtrarPrecoAtual(this.dados_aux);
+    this.filtrarDesmontagem(this.dados_aux);
+    this.filtrarPrecosSaida(this.dados_aux);
+    this.filtrarParametroMontagem(this.dados_aux);
+  }
+
+  filtrarSerie(d) {
+    d.filter(dados => {
+      if (this.serie === dados.Serie) {
+        this.dados_aux.push(dados);
+      }
     });
   }
 
@@ -95,8 +114,20 @@ export class AppComponent implements OnInit {
     });
   }
 
+  changeSerie(e) {
+    this.dados_aux = [];
+    this.limpaDados();
+    this.dados.filter(d => {
+      if (d.Serie === e.value) {
+        this.dados_aux.push(d);
+      }
+    });
+
+    this.filtros();
+    // console.log('Filtado pelo radio: ', this.dados_aux);
+  }
+
   private limpaDados() {
-    this.dados = [];
     this.strikes = [];
     this.montagens = [];
     this.precosEntrada = [];

@@ -49,7 +49,6 @@
     </div>
   </nav>
   <div class="container">
-
     <div class="row">
       <div class="col-md">
         <div class="card mt-4">
@@ -58,6 +57,20 @@
               <mat-tab label="Butterfly"> Content 1 </mat-tab>
               <mat-tab label="Calendar Butterfly">
                 <div class="calendar-butterfly">
+                    <div class="row">
+                        <div class="col-md m-4">
+                          <mat-radio-group 
+                          [(ngModel)]="serie"
+                          (change)="changeSerie($event)">
+                            <mat-radio-button value="H/I">H/I</mat-radio-button>
+                            <mat-radio-button value="I/J">I/J</mat-radio-button>
+                            <mat-radio-button value="J/K">J/K</mat-radio-button>
+                          </mat-radio-group>
+                        </div>
+                        <div class="col-md m-4">
+                            <mat-checkbox>Mostras somente strikes</mat-checkbox>
+                        </div>
+                      </div>
                   <div class="row polaroid">
                     <div class="col-md">
                    <span class="serie">{{ serie }}</span>   
@@ -82,7 +95,7 @@
                     </ng-container>
                   </div>
                   <div class="col-md">
-                      <ng-container *ngFor='let quadrados of dados; let i = index'>
+                      <ng-container *ngFor='let quadrados of dados_aux; let i = index'>
                     <div  class="row">
                       <div class="quadrado">
                         <span class="quadrado-1"><small class="small-1">-1</small></span>

@@ -105,3 +105,11 @@ p.petrh185 {
 .mat-tab-body-content {
     overflow: hidden !important;
 }
+
+/deep/ .mat-radio-label-content {
+    font-weight: bold;
+}
+
+/deep/ label.mat-radio-label {
+    margin-left: 20px;
+}
