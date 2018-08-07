@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
   this.limpaDados();
     this.servicos.getCalendarButerfly()
     .subscribe((d: CalendarButerfly[]) => {
-      this.dados = d.slice(0, 3);
+      this.dados = d.slice(0, 10);
       this.serie = d[0].Serie;
       console.log('Dados: ', this.dados);
       console.log('Serie: ', this.serie);
