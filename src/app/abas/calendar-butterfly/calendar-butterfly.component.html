@@ -41,7 +41,7 @@
     <div  class="row">
       <div class="quadrado">
         <span class="quadrado-1"><small class="small-1">-1</small></span>
-        <p class="petrh185">PETRH{{ dados[i]?.asa_inferior.Strike}}</p>
+        <p class="petrh185">{{ dados[i]?.asa_inferior.Codigo}}</p>
       </div>
       <div class="quadrado">
       </div>
@@ -51,13 +51,13 @@
         </div>
         <div class="quadrado">
             <span class="quadrado-1"><small class="small-1">+2</small></span>
-            <p class="petrh185">PETRI{{dados[i]?.miolo.Strike}}</p>
+            <p class="petrh185">{{dados[i]?.miolo.Codigo}}</p>
         </div>
        </div>
        <div  class="row">
           <div class="quadrado">
               <span class="quadrado-1"><small class="small-1">-1</small></span>
-              <p class="petrh185">PETRH{{dados[i]?.asa_superior.Strike}}</p>
+              <p class="petrh185">{{dados[i]?.asa_superior.Codigo}}</p>
           </div>
           <div class="quadrado">
           </div>
@@ -77,7 +77,7 @@
     <ng-container *ngFor='let preco of precosEntrada;let i = index'>
       <br>
       <br>
-  <span class="preco-danger">- {{ preco }} </span>
+  <span class="preco-danger">{{ preco }} </span>
   <br>
     <span class="badge badge-pill badge-danger">Pagar</span>
     <br>
@@ -98,7 +98,7 @@
       <ng-container *ngFor='let preco of precosSaida;let i = index'>
         <br>
         <br>
-          <span class="preco-sucesso"> +  {{ preco }} </span>
+          <span class="preco-sucesso">{{ preco }} </span>
           <br>
           <span class="badge badge-pill badge-success">Receber</span>
           <br>
@@ -111,7 +111,7 @@
         <ng-container *ngFor='let pam of parametroMontagem;let i = index'>
           <br>
           <br>
-            <span class="preco-montagem"> -  {{ pam }} </span>
+            <span class="preco-montagem">{{ pam }}</span>
             <br>
             <span class="badge badge-pill badge-info">Pagar</span>
             <br>

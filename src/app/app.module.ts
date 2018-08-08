@@ -16,12 +16,14 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import { MaterialModule } from './material.module/material.module';
 import { ServicosService } from './service/servicos.service';
 import { CalendarButterflyComponent } from './abas/calendar-butterfly/calendar-butterfly.component';
+import { ButterflyComponent } from './abas/butterfly/butterfly.component';
 
 @NgModule({
 
   declarations: [
     AppComponent,
-    CalendarButterflyComponent
+    CalendarButterflyComponent,
+    ButterflyComponent
   ],
   imports: [
     BrowserModule,
