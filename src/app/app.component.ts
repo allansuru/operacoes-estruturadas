@@ -3,6 +3,7 @@ import { ServicosService } from './service/servicos.service';
 import { Subscription } from 'rxjs/Subscription';
 import { MatTabChangeEvent } from '@angular/material';
 import { CalendarButerfly } from './models/calendar-butterfly';
+import { Butterfly } from './models/butterfly';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { CalendarButerfly } from './models/calendar-butterfly';
 export class AppComponent implements OnInit {
 
   dados: CalendarButerfly[];
-  aba = '';
+  aba = 'Butterfly'; // vou start com a butterfly
 
 
   constructor(public servicos: ServicosService) {
@@ -24,15 +25,25 @@ export class AppComponent implements OnInit {
     // .subscribe(x => console.log('ALL', x));
     // this.servicos.getButterfly()
     // .subscribe(x => console.log('Butterfly', x));
+    this.butterfly();
   }
   tabChanged = (tabChangeEvent: MatTabChangeEvent): void => {
     // console.log('tabChangeEvent => ', tabChangeEvent);
     // console.log('index => ', tabChangeEvent.index);
      if (tabChangeEvent.tab.textLabel === 'Calendar Butterfly') {
         this.calendarButerfly();
+     } else if (tabChangeEvent.tab.textLabel === 'Butterfly') {
+       this.butterfly();
      }
   }
 
+  butterfly() {
+    this.servicos.getButterfly()
+    .subscribe((d: Butterfly[]) => {
+      this.dados = d;
+      this.aba = 'Butterfly';
+    });
+  }
 
   calendarButerfly() {
     this.servicos.getCalendarButerfly()
