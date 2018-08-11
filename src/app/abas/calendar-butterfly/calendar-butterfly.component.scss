@@ -62,14 +62,14 @@ span.preco-montagem {
 }
 
 span.serie {
+    position: relative;
+    left: 100px;
     font-size: 30px;
     font-weight: 700;
     color: blue;
 }
 
 span.coluna {
-    position: relative;
-    left: 100px;
     font-size: 15px;
     display: block;
     position: relative;
@@ -81,6 +81,7 @@ span.coluna.param {
 }
 .quadrado {
     border: 1px solid #000000;
+    background-color: aliceblue;
     width: 60px;
     height: 45px;
     margin-bottom: 3px;
@@ -98,7 +99,7 @@ p.petrh185 {
     font-size: 10px;
     font-weight: bold;
     text-align: center;
-    color: blue;
+    color: firebrick;
 }
 
  /deep/ .mat-tab-body-content {
