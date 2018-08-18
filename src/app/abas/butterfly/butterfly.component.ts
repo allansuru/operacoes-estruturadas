@@ -23,9 +23,10 @@ export class ButterflyComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.filtrarSerie(this.dados);
-    this.filtros();
+    // this.filtrarSerie(this.dados);
+    // this.filtros();
     console.log('Dados Butterfly: ', this.dados);
+    this.dados_aux =  this.dados;
   }
 
   private filtros() {

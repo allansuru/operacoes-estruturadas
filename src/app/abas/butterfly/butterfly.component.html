@@ -1,3 +1,62 @@
-<p>
-  butterfly works!
-</p>
+<div class="container">
+    <div class="row polaroid shadow p-1 mb-2 bg-white rounded">
+        <div class="col-md"><span class="serie">H</span>   </div>
+        <div class="col-md"><span class="coluna font-weight-bold pt-4">Montagem</span></div>
+        <div class="col-md"><span class="coluna font-weight-bold pt-1">Preço Atual</span></div>
+        <div class="col-md"><span class="coluna font-weight-bold pt-4">Desmontagem</span></div>
+        <div class="col-md"><span class="coluna font-weight-bold pt-2">Parâmetro Montagem</span></div>
+      </div>
+      <br>
+          <div class="row" *ngFor='let d of dados_aux; let i = index'>
+              <div class="card card-block">
+                <div class="col-sm-2">
+                    <span class="card-text"> {{ d.asa_inferior.Strike }}</span><div class="quadrado"><span class="text-center font-weight-bold">+1</span></div><br>
+                    <span class="card-text"> {{ d.miolo.Strike }}</span><div class="quadrado"><span class="text-center font-weight-bold">-2</span></div><br>
+                    <span class="card-text"> {{ d.asa_superior.Strike }}</span><div class="quadrado"><span class="text-center font-weight-bold">+1</span></div><br>
+                </div>
+                  <div class="col-sm-3">
+                      <div class="quadrado-2 rounded">
+                        <span class="text-center font-weight-bold" style="background-color:red; color: white">C</span>
+                      </div>
+                      <span> {{ d.asa_inferior.Codigo }} </span>
+                      <span  class="ml-2"><small>1 x </small> {{ d.asa_inferior.Valor_Bid }} </span>
+                      <br>
+                      <div class="quadrado-2 rounded">
+                        <span class="text-center font-weight-bold"  style="background-color:green; color: white">V</span>
+                      </div>
+                      <span> {{ d.miolo.Codigo }} </span>
+                      <span  class="ml-2"><small>2 x </small> {{ d.miolo.Valor_Bid }} </span>
+                      <br>
+                      <div class="quadrado-2 rounded">
+                        <span class="text-center font-weight-bold"  style="background-color:red; color: white">C</span>
+                      </div>
+                      <span> {{ d.asa_superior.Codigo }} </span>
+                      <span  class="ml-2"><small>1 x </small> {{ d.asa_superior.Valor_Bid }} </span>
+                      <br>
+                  </div>
+                  <div class="col-sm-2"><span class="font-weight-bold">{{ d.preco_entrada_atual }}</span></div>
+                  <div class="col-sm-3">
+                      <div class="quadrado-2 rounded">
+                        <span class="text-center font-weight-bold" style="background-color:green; color: white">V</span>
+                      </div>
+                      <span> {{ d.asa_inferior.Codigo }} </span>
+                      <span  class="ml-2"> {{ d.asa_inferior.Valor_Bid }} </span>
+                      <br>
+                      <div class="quadrado-2 rounded">
+                        <span class="text-center font-weight-bold"  style="background-color:red; color: white">C</span>
+                      </div>
+                      <span> {{ d.miolo.Codigo }} </span>
+                      <span  class="ml-2"> {{ d.miolo.Valor_Bid }} </span>
+                      <br>
+                      <div class="quadrado-2 rounded">
+                        <span class="text-center font-weight-bold"  style="background-color:green; color: white">V</span>
+                      </div>
+                      <span> {{ d.asa_superior.Codigo }} </span>
+                      <span  class="ml-2"> {{ d.asa_superior.Valor_Bid }} </span>
+                      <br>
+                  </div>  
+                  <div class="col-sm-1">{{ d.preco_saida_atual }}</div>
+                  <div class="col-sm-1">{{ d.preco_entrada_parametro }}</div>
+              </div>
+            </div>
+</div>

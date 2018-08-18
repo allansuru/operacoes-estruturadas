@@ -9,6 +9,7 @@ body {
 
 .row {
     position: relative;
+    top: 45px !important;
 }
 .calendar-butterfly {
     position: relative;

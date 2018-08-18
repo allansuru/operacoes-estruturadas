@@ -11,6 +11,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule, FormsModule } from '../../node_modules/@angular/forms';
 
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import { MaterialModule } from './material.module/material.module';
@@ -33,6 +34,7 @@ import { ButterflyComponent } from './abas/butterfly/butterfly.component';
     ReactiveFormsModule,
     FormsModule,
     MaterialModule,
+    AngularFontAwesomeModule,
     RouterModule.forRoot([
       { path: 'Home', component: AppComponent},
     ])
