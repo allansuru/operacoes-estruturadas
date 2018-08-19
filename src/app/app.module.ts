@@ -18,6 +18,7 @@ import { MaterialModule } from './material.module/material.module';
 import { ServicosService } from './service/servicos.service';
 import { CalendarButterflyComponent } from './abas/calendar-butterfly/calendar-butterfly.component';
 import { ButterflyComponent } from './abas/butterfly/butterfly.component';
+import { ButterflyService } from './service/butterfly.service';
 
 @NgModule({
 
@@ -41,6 +42,7 @@ import { ButterflyComponent } from './abas/butterfly/butterfly.component';
   ],
   providers: [
     ServicosService,
+    ButterflyService,
   ],
   bootstrap: [AppComponent]
 })

@@ -56,7 +56,7 @@
           <div class="card-body">
             <mat-tab-group #tabGroup (selectedTabChange)="tabChanged($event)">
               <mat-tab label="Butterfly">
-                <butterfly *ngIf="aba === 'Butterfly' && dados" [dados]="dados"></butterfly>
+                <butterfly *ngIf="aba === 'Butterfly'" [dados]="dados"></butterfly>
               </mat-tab>
               <mat-tab label="Calendar Butterfly">
                   <calendar-butterfly *ngIf="aba === 'Calendar Butterfly'" [dados]="dados"></calendar-butterfly>

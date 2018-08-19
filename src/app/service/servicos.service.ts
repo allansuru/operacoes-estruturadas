@@ -15,8 +15,5 @@ export class ServicosService {
     return this.db.list('/CalendarButterfly');
   }
 
-  getButterfly() {
-    return this.db.list('/Butterfly');
-  }
 
 }

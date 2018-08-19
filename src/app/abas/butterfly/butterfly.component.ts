@@ -1,5 +1,6 @@
+import { Butterfly } from './../../models/butterfly';
 import { Component, OnInit, Input } from '@angular/core';
-import { Butterfly } from '../../models/butterfly';
+import { ButterflyService } from '../../service/butterfly.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -14,27 +15,47 @@ export class ButterflyComponent implements OnInit {
   dados_aux: Butterfly[] = [];
   serie = 'I';
 
-  constructor() { }
+
+
+  constructor(public servico: ButterflyService) { }
 
   ngOnInit() {
-
-    console.log('Dados Butterfly: ', this.dados[0]); // I
-    this.dados_aux =  this.dados[0];
-
-    console.log('todas séries: ', this.dados);
-
+    console.log('Butterfly: ', this.dados);
+   this.getButterflyI();
   }
+
+  getButterflyI() {
+    this.servico.getButterflyI()
+    .subscribe(itens => {
+      this.dados_aux = itens;
+    });
+  }
+
+  getButterflyJ() {
+    this.servico.getButterflyJ()
+    .subscribe(itens => {
+      this.dados_aux = itens;
+    });
+  }
+
+  getButterflyK() {
+    this.servico.getButterflyK()
+    .subscribe(itens => {
+      this.dados_aux = itens;
+    });
+  }
+
 
   changeSerie(e) {
     this.serie = e.value;
     this.dados_aux = [];
 
     if (this.serie === 'I') {
-      this.dados_aux = this.dados[0];
+        this.getButterflyI();
     } else if (this.serie === 'J') {
-      this.dados_aux =  this.dados[1];
+      this.getButterflyJ();
     } else if (this.serie === 'K') {
-      this.dados_aux = this.dados[2];
+      this.getButterflyK();
     }
 
   }

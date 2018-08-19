@@ -21,10 +21,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.servicos.getAll()
-    // .subscribe(x => console.log('ALL', x));
-    // this.servicos.getButterfly()
-    // .subscribe(x => console.log('Butterfly', x));
     this.butterfly();
   }
   tabChanged = (tabChangeEvent: MatTabChangeEvent): void => {
@@ -38,11 +34,7 @@ export class AppComponent implements OnInit {
   }
 
   butterfly() {
-    this.servicos.getButterfly()
-    .subscribe((d: Butterfly[]) => {
-      this.dados = d;
       this.aba = 'Butterfly';
-    });
   }
 
   calendarButerfly() {
