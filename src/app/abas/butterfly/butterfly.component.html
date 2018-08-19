@@ -1,6 +1,20 @@
 <div class="container">
+    <div class="row">
+        <div class="col-md m-4">
+          <mat-radio-group 
+          [(ngModel)]="serie"
+          (change)="changeSerie($event)">
+            <mat-radio-button value="I">I</mat-radio-button>
+            <mat-radio-button value="J">J</mat-radio-button>
+            <mat-radio-button value="K">K</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="col-md m-4">
+            <mat-checkbox>Mostras somente strikes</mat-checkbox>
+        </div>
+      </div>
     <div class="row polaroid shadow p-1 mb-2 bg-white rounded">
-        <div class="col-md"><span class="serie">H</span>   </div>
+        <div class="col-md"><span class="serie">{{ serie }}</span></div>
         <div class="col-md"><span class="coluna font-weight-bold pt-4">Montagem</span></div>
         <div class="col-md"><span class="coluna font-weight-bold pt-1">Preço Atual</span></div>
         <div class="col-md"><span class="coluna font-weight-bold pt-4">Desmontagem</span></div>
@@ -19,7 +33,7 @@
                         <span class="text-center font-weight-bold" style="background-color:red; color: white">C</span>
                       </div>
                       <span> {{ d.asa_inferior.Codigo }} </span>
-                      <span  class="ml-2"><small>1 x </small> {{ d.asa_inferior.Valor_Bid }} </span>
+                      <span  class="ml-2"><small>1 x </small> {{ d.asa_inferior.Valor_Ask }} </span>
                       <br>
                       <div class="quadrado-2 rounded">
                         <span class="text-center font-weight-bold"  style="background-color:green; color: white">V</span>
@@ -31,32 +45,42 @@
                         <span class="text-center font-weight-bold"  style="background-color:red; color: white">C</span>
                       </div>
                       <span> {{ d.asa_superior.Codigo }} </span>
-                      <span  class="ml-2"><small>1 x </small> {{ d.asa_superior.Valor_Bid }} </span>
+                      <span  class="ml-2"><small>1 x </small> {{ d.asa_superior.Valor_Ask }} </span>
                       <br>
                   </div>
-                  <div class="col-sm-2"><span class="font-weight-bold">{{ d.preco_entrada_atual }}</span></div>
+                  <div class="col-sm-2 mt-4">
+                    <span class="font-weight-bold" style="color:red">
+                      {{ d.preco_entrada_atual }}
+                    </span>
+                    <br><small><span class="text-center" style="color:red">(Pagar)</span></small></div>
                   <div class="col-sm-3">
                       <div class="quadrado-2 rounded">
                         <span class="text-center font-weight-bold" style="background-color:green; color: white">V</span>
                       </div>
                       <span> {{ d.asa_inferior.Codigo }} </span>
-                      <span  class="ml-2"> {{ d.asa_inferior.Valor_Bid }} </span>
+                      <span  class="ml-2"><small>1 x</small> {{ d.asa_inferior.Valor_Bid }} </span>
                       <br>
                       <div class="quadrado-2 rounded">
                         <span class="text-center font-weight-bold"  style="background-color:red; color: white">C</span>
                       </div>
                       <span> {{ d.miolo.Codigo }} </span>
-                      <span  class="ml-2"> {{ d.miolo.Valor_Bid }} </span>
+                      <span  class="ml-2"><small>2 x</small> {{ d.miolo.Valor_Ask }} </span>
                       <br>
                       <div class="quadrado-2 rounded">
                         <span class="text-center font-weight-bold"  style="background-color:green; color: white">V</span>
                       </div>
                       <span> {{ d.asa_superior.Codigo }} </span>
-                      <span  class="ml-2"> {{ d.asa_superior.Valor_Bid }} </span>
+                      <span  class="ml-2"><small>1 x</small> {{ d.asa_superior.Valor_Bid }} </span>
                       <br>
                   </div>  
-                  <div class="col-sm-1">{{ d.preco_saida_atual }}</div>
-                  <div class="col-sm-1">{{ d.preco_entrada_parametro }}</div>
+                  <div class="col-sm-1 mt-4">
+                    <span class="font-weight-bold" style="color: green">{{ d.preco_saida_atual }}</span>
+                    <br><small><span class="text-center" style="color:green">(Receber)</span></small>
+                  </div>
+                  <div class="col-sm-1 mt-4">
+                    <span class="font-weight-bold" style="color:blue">{{ d.preco_entrada_parametro }}</span>
+                    <br><small><span class="text-center" style="color:blue">(Pagar)</span></small>
+                  </div>
               </div>
             </div>
 </div>
