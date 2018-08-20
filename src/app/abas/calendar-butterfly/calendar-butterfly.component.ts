@@ -24,7 +24,6 @@ export class CalendarButterflyComponent implements OnInit {
   ngOnInit() {
     this.filtrarSerie(this.dados);
     this.filtros();
-    console.log('Dados: ', this.dados);
   }
 
   private filtros() {

@@ -15,12 +15,10 @@ export class ButterflyComponent implements OnInit {
   dados_aux: Butterfly[] = [];
   serie = 'I';
 
-
-
   constructor(public servico: ButterflyService) { }
 
   ngOnInit() {
-    console.log('Butterfly: ', this.dados);
+
    this.getButterflyI();
   }
 
@@ -28,6 +26,7 @@ export class ButterflyComponent implements OnInit {
     this.servico.getButterflyI()
     .subscribe(itens => {
       this.dados_aux = itens;
+      console.log('Butterfly: ', this.dados_aux);
     });
   }
 

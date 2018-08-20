@@ -8,8 +8,8 @@
 .quadrado {
     border: 1px solid #000000;
     background-color: white;
-    width: 25px;
-    height: 25px;
+    width: 23px;
+    height: 23px;
     margin-left: 10px;
     margin-bottom: 5px;
     position: relative;
@@ -20,8 +20,8 @@
 .quadrado-2 {
     border: 1px solid #000000;
     background-color: white;
-    width: 25px;
-    height: 25px;
+    width: 23px;
+    height: 23px;
     position: relative;
     display: inline-grid;
     margin-bottom: 5px;
@@ -30,4 +30,12 @@
 .card {
     flex-direction: row !important;
     width: 100%;
+}
+
+.span.card {
+    font-size: 12px !important;
+}
+
+.card.card-block {
+    margin-bottom: 2px;
 }
