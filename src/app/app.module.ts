@@ -15,11 +15,11 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import { MaterialModule } from './material.module/material.module';
-import { ServicosService } from './service/servicos.service';
 import { CalendarButterflyComponent } from './abas/calendar-butterfly/calendar-butterfly.component';
 import { ButterflyComponent } from './abas/butterfly/butterfly.component';
 import { ButterflyService } from './service/butterfly.service';
 import { CabecalhoService } from './service/cabecalho.service';
+import { CalendarButterflyService } from './service/calendar-buttlerfly.service';
 
 @NgModule({
 
@@ -42,9 +42,9 @@ import { CabecalhoService } from './service/cabecalho.service';
     ])
   ],
   providers: [
-    ServicosService,
     ButterflyService,
-    CabecalhoService
+    CabecalhoService,
+    CalendarButterflyService
   ],
   bootstrap: [AppComponent]
 })

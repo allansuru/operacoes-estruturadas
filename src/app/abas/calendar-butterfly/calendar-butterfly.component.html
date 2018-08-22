@@ -1,123 +1,110 @@
-<div class="calendar-butterfly">
-    <div class="row">
-        <div class="col-md m-4">
-          <mat-radio-group 
-          [(ngModel)]="serie"
-          (change)="changeSerie($event)">
-            <mat-radio-button value="H/I">H/I</mat-radio-button>
-            <mat-radio-button value="I/J">I/J</mat-radio-button>
-            <mat-radio-button value="J/K">J/K</mat-radio-button>
-          </mat-radio-group>
-        </div>
-        <div class="col-md m-4">
-            <mat-checkbox>Mostras somente strikes</mat-checkbox>
-        </div>
+<div class="container">
+  <div class="row">
+      <div class="col-md m-4">
+        <mat-radio-group 
+        [(ngModel)]="serie"
+        (change)="changeSerie($event)">
+          <mat-radio-button value="H/I">H/I</mat-radio-button>
+          <mat-radio-button value="I/J">I/J</mat-radio-button>
+          <mat-radio-button value="J/K">J/K</mat-radio-button>
+        </mat-radio-group>
       </div>
+      <div class="col-md m-4">
+          <mat-checkbox>Mostras somente strikes</mat-checkbox>
+      </div>
+    </div>
   <div class="row polaroid shadow p-1 mb-2 bg-white rounded">
-    <div class="col-md">
-   <span class="serie">{{ serie }}</span>   
+      <div class="col-md"><span class="serie">{{ serie }}</span></div>
+      <div class="col-md"><span class="coluna font-weight-bold pt-4">Montagem</span></div>
+      <div class="col-md"><span class="coluna font-weight-bold pt-1">Preço Atual</span></div>
+      <div class="col-md"><span class="coluna font-weight-bold pt-4">Desmontagem</span></div>
+      <div class="col-md"><span class="coluna font-weight-bold pt-2">Parâmetro Montagem</span></div>
     </div>
-    <div class="col-md">
-    </div>
-    <div class="col-md"><span class="coluna font-weight-bold pt-4">Montagem</span></div>
-    <div class="col-md"><span class="coluna font-weight-bold pt-1">Preço Atual</span></div>
-    <div class="col-md"><span class="coluna font-weight-bold pt-4">Desmontagem</span></div>
-    <div class="col-md"></div>
-    <div class="col-md"><span class="coluna font-weight-bold pt-2">Parâmetro Montagem</span></div>
-  </div>
-  <br>
-</div>
-<div class="row">
-  <div class="col-md-1">
-    <ng-container *ngFor='let strike of strikes;let i = index'>
-   <span class="strike font-weight-bold" style="color: blue">   {{ strike }} </span>
-   <br>
-   <br>
-   <hr class="hr-first"  *ngIf="(i+1)%3==0">
-    </ng-container>
-  </div>
-  <div class="col-md">
-      <ng-container *ngFor='let quadrados of dados_aux; let i = index'>
-    <div  class="row">
-      <div class="quadrado border border-white rounded">
-        <span class="quadrado-1"><small class="small-1">-1</small></span>
-        <p class="petrh185">{{ dados[i]?.asa_inferior.Codigo}}</p>
-      </div>
-      <div class="quadrado border border-white rounded">
-      </div>
-     </div>
-     <div  class="row">
-        <div class="quadrado border border-white rounded">
-        </div>
-        <div class="quadrado border border-white rounded">
-            <span class="quadrado-1"><small class="small-1">+2</small></span>
-            <p class="petrh185">{{dados[i]?.miolo.Codigo}}</p>
-        </div>
-       </div>
-       <div  class="row">
-          <div class="quadrado border border-white rounded">
-              <span class="quadrado-1"><small class="small-1">-1</small></span>
-              <p class="petrh185">{{dados[i]?.asa_superior.Codigo}}</p>
+    <br>
+        <div class="row" style="height: 135px" *ngFor='let d of dados_aux; let i = index'>
+            <div class="card card-block">
+              <div class="col-sm-2" style="position: relative; bottom: 15px">
+                  <span class="card-text font-weight-bold" style="font-size: 12px;position: relative;top:15px"> {{ d.asa_inferior.Strike }}</span>
+                  <div class="quadrado" style="top: 16px;"><span class="text-center font-weight-bold" style="font-size:12px">-1</span></div>
+                  <div class="quadrado_"  style="right: 2px;top: 24px;"></div>
+                  <br>
+                  <span class="card-text font-weight-bold" style="font-size: 12px;position: relative;top:6px"> {{ d.miolo.Strike }}</span>
+                  <div class="quadrado_" style="left:10px;top: 13px;"></div>
+                  <div class="quadrado" style="right: 2px;top: 5px;"><span class="text-center font-weight-bold" style="font-size:12px">+2</span></div>
+                  <br>
+                  <span class="card-text font-weight-bold" style="font-size: 12px;position: relative;top:-5px"> {{ d.asa_superior.Strike }}</span>
+                  <div class="quadrado" style="bottom: 7px;"><span class="text-center font-weight-bold" style="font-size:12px">-1</span></div>
+                  <div class="quadrado_" style="right: 2px;top: 1px;"></div>
+                  <br>
+              </div>
+                <div class="col-sm-3">
+                    <div class="quadrado-2 rounded">
+                      <span class="text-center font-weight-bold" style="background-color:red; color: white; font-size: 12px">C</span>
+                    </div>
+                    <span style="font-size: 12px"> {{ d.asa_inferior.Codigo }} </span>
+                    <span  class="ml-2" style="color: blue;font-size: 12px"><small>1 x </small> {{ d.asa_inferior.Valor_Bid }} </span>
+                    <br>
+                    <div class="quadrado-2 rounded">
+                      <span class="text-center font-weight-bold;font-size: 12px"  style="background-color:green; color: white;font-size: 12px">V</span>
+                    </div>
+                    <span style="font-size: 12px"> {{ d.miolo.Codigo }} </span>
+                    <span  class="ml-2" style="color: blue;font-size: 12px"><small>2 x </small> {{ d.miolo.Valor_Ask }} </span>
+                    <br>
+                    <div class="quadrado-2 rounded">
+                      <span class="text-center font-weight-bold"  style="background-color:red; color: white;font-size: 12px">C</span>
+                    </div>
+                    <span style="font-size: 12px"> {{ d.asa_superior.Codigo }} </span>
+                    <span  class="ml-2" style="color: blue;font-size: 12px"><small>1 x </small> {{ d.asa_superior.Valor_Bid }} </span>
+                    <br>
+                </div>
+                <div class="col-sm-2 mt-4">
+                  <span class="font-weight-bold;font-size: 12px" style="color:red;font-size: 12px">
+                    {{ d.preco_entrada_atual }}
+                  </span>
+                  <br><small><span class="text-center" style="color:red;font-size: 11px">(Pagar)</span></small></div>
+                <div class="col-sm-2">
+                    <div class="quadrado-2 rounded">
+                      <span class="text-center font-weight-bold;font-size: 12px" style="background-color:green; color: white;font-size: 12px">V</span>
+                    </div>
+                    <span style="font-size: 12px"> {{ d.asa_inferior.Codigo }} </span>
+                    <span  class="ml-2" style="color: blue;font-size: 12px"><small>1 x</small> {{ d.asa_inferior.Valor_Ask }} </span>
+                    <br>
+                    <div class="quadrado-2 rounded">
+                      <span class="text-center font-weight-bold"  style="background-color:red; color: white">C</span>
+                    </div>
+                    <span style="font-size: 12px"> {{ d.miolo.Codigo }} </span>
+                    <span  class="ml-2" style="color: blue;font-size: 12px"><small>2 x</small> {{ d.miolo.Valor_Bid }} </span>
+                    <br>
+                    <div class="quadrado-2 rounded">
+                      <span class="text-center font-weight-bold;font-size: 12px"  style="background-color:green; color: white;font-size: 12px">V</span>
+                    </div>
+                    <span style="font-size: 12px"> {{ d.asa_superior.Codigo }} </span>
+                    <span  class="ml-2" style="color: blue;font-size: 12px"><small>1 x</small> {{ d.asa_superior.Valor_Ask }} </span>
+                    <br>
+                </div>  
+                <div class="col-sm-1 mt-4">
+                  <span class="font-weight-bold;font-size: 12px" style="color: green;font-size: 12px">{{ d.preco_saida_atual }}</span>
+                  <br><small><span class="text-center" style="color:green;font-size: 11px">(Receber)</span></small>
+                </div>
+                <div class="col-sm-1 mt-4">
+                  <span class="font-weight-bold;font-size: 12px" style="color:blue;font-size: 12px">{{ d.preco_entrada_parametro }}</span>
+                  <br><small><span class="text-center" style="color:blue;font-size: 11px">(Pagar)</span></small>
+                </div>
+                <div class="col-sm-1">
+                  <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon>more_vert</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item>
+                      <mat-icon>equalizer</mat-icon>
+                      <span>Relatórios</span>
+                    </button>
+                    <button mat-menu-item>
+                      <mat-icon>notifications_on</mat-icon>
+                      <span>Favoritos</span>
+                    </button>
+                  </mat-menu>
+                </div>
+            </div>
           </div>
-          <div class="quadrado border border-white rounded">
-          </div>
-         </div>
-         <hr class="hr-second">
-        </ng-container>
-  </div>
-  <div class="col-md-2">
-    <ng-container *ngFor='let montagem of montagens;let i = index'>
-    <span class="montagem text-primary font-weight-bold">{{ montagem }}</span>
-    <br>
-    <br>
-    <hr  *ngIf="(i+1)%3==0">
-    </ng-container>
-  </div>
-  <div class="col-md-2">
-    <ng-container *ngFor='let preco of precosEntrada;let i = index'>
-      <br>
-      <br>
-  <span class="preco-danger">{{ preco }} </span>
-  <br>
-    <span class="badge badge-pill badge-danger">Pagar</span>
-    <br>
-    <br>
-    <br>
-    <hr>
-    </ng-container>
-  </div>
-  <div class="col-md-2">
-    <ng-container *ngFor='let desmontagem of desmontagens;let i = index'>
-        <span class="desmontagem text-primary font-weight-bold">{{ desmontagem }}</span>
-      <br>
-      <br>
-      <hr  *ngIf="(i+1)%3==0">
-    </ng-container>
-  </div>
-  <div class="col-md-2">
-      <ng-container *ngFor='let preco of precosSaida;let i = index'>
-        <br>
-        <br>
-          <span class="preco-sucesso">{{ preco }} </span>
-          <br>
-          <span class="badge badge-pill badge-success">Receber</span>
-          <br>
-          <br>
-          <br>
-          <hr>
-      </ng-container>
-    </div>
-    <div class="col-md-1">
-        <ng-container *ngFor='let pam of parametroMontagem;let i = index'>
-          <br>
-          <br>
-            <span class="preco-montagem">{{ pam }}</span>
-            <br>
-            <span class="badge badge-pill badge-info">Pagar</span>
-            <br>
-            <br>
-            <br>
-            <hr>
-        </ng-container>
-      </div>
 </div>

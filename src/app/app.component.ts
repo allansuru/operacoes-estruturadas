@@ -1,11 +1,10 @@
 import { CabecalhoService } from './service/cabecalho.service';
 import { Component, OnInit } from '@angular/core';
-import { ServicosService } from './service/servicos.service';
 import { Subscription } from 'rxjs/Subscription';
 import { MatTabChangeEvent } from '@angular/material';
 import { CalendarButerfly } from './models/calendar-butterfly';
-import { Butterfly } from './models/butterfly';
-import { Cabecalho } from './models/cabecalho';
+
+
 
 
 @Component({
@@ -17,10 +16,9 @@ export class AppComponent implements OnInit {
 
   dados: CalendarButerfly[];
   aba = 'Butterfly'; // vou start com a butterfly
-  cabecalho: Cabecalho[];
+  cabecalho: any[];
 
   constructor(
-    public servicos: ServicosService,
     public cabecalhoService: CabecalhoService
   ) {}
 
@@ -50,11 +48,8 @@ export class AppComponent implements OnInit {
   }
 
   calendarButerfly() {
-    this.servicos.getCalendarButerfly()
-    .subscribe((d: CalendarButerfly[]) => {
-      this.dados = d; // All
-      this.aba = 'Calendar Butterfly';
-    });
+    this.aba = 'Calendar Butterfly';
+
   }
 
 

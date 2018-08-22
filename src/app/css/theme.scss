@@ -1,0 +1,54 @@
+.polaroid {
+    border: 1px solid #4C3C1B;
+    padding: 8px 80px 8px 8px;
+    border-right-style: solid;
+    border-right-width: 1px;
+}
+
+.quadrado {
+    border: 1px solid #000000;
+    background-color: white;
+    width: 23px;
+    height: 23px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    position: relative;
+    display: -ms-inline-grid;
+    display: inline-grid;
+}
+
+.quadrado_ {
+    border: 1px solid #000000;
+    background-color: white;
+    width: 23px;
+    height: 23px;
+    top: 8px;
+    margin-bottom: 5px;
+    position: relative;
+    display: -ms-inline-grid;
+    display: inline-grid;
+}
+
+
+.quadrado-2 {
+    border: 1px solid #000000;
+    background-color: white;
+    width: 23px;
+    height: 23px;
+    position: relative;
+    display: inline-grid;
+    margin-bottom: 5px;
+}
+
+.card {
+    flex-direction: row !important;
+    width: 100%;
+}
+
+.span.card {
+    font-size: 12px !important;
+}
+
+.card.card-block {
+    margin-bottom: 2px;
+}
