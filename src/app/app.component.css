@@ -18,3 +18,6 @@ span.ml-2 {
 /deep/ label.mat-radio-label {
     margin-left: 20px;
 }
+span.cabecalho-span {
+    color: darkgrey;font-size: 14px;font-weight: 500
+}

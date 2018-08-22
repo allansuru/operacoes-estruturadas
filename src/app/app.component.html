@@ -50,6 +50,29 @@
     </div>
   </nav>
   <div class="container">
+    <br>
+    <div class="row cabecalho mt-5" *ngIf='cabecalho'>
+      <div class="col-md border border-dark m-2 rounded"> 
+        <span class="cabecalho-span">Ação: {{ cabecalho[0].$value }}</span> <br>
+         <h2 class="text-center">{{ cabecalho[1].$value }}</h2>
+      </div>
+      <div class="col-md border border-dark m-2 rounded">
+          <span class="cabecalho-span">Variação</span> <br>
+          <h2 class="text-center">{{ cabecalho[4].$value }}</h2>
+      </div>
+      <div class="col-md border border-dark m-2 rounded">
+          <span class="cabecalho-span">Volatilidade</span> <br>
+          <h2 class="text-center">{{ cabecalho[5].$value }}%</h2>
+      </div>
+      <div class="col-md border border-dark m-2 rounded">
+          <span class="cabecalho-span" >Taxa de Juros</span> <br>
+          <h2 class="text-center">{{ cabecalho[2].$value }}%</h2>
+      </div>
+      <div class="col-md border border-dark m-2 rounded">
+          <span class="cabecalho-span">Última Atualização</span> <br>
+          <h4 class="text-center">{{ cabecalho[3].$value }}</h4>
+      </div>
+    </div>
     <div class="row">
       <div class="col-md">
         <div class="card mt-4">
