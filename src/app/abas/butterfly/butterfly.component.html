@@ -15,17 +15,23 @@
       </div>
     <div class="row polaroid shadow p-1 mb-2 bg-white rounded">
         <div class="col-md"><span class="serie">{{ serie }}</span></div>
-        <div class="col-md"><span class="coluna font-weight-bold pt-4">Montagem</span></div>
+        <div class="col-md" (click)="ordenar('preco_entrada_atual')">
+          <span class="coluna font-weight-bold pt-4">Montagem</span>
+          <i class="material-icons" *ngIf="coluna === 'preco_entrada_atual' ">{{ seta }}</i>
+          <!-- <mat-icon class="ml-2" *ngIf='ordem'> arrow_drop_up</mat-icon>
+          <mat-icon class="ml-2" *ngIf='!ordem'> arrow_drop_down</mat-icon> -->
+        </div>
         <div class="col-md"><span class="coluna font-weight-bold pt-1">Preço Atual</span></div>
-        <div class="col-md"><span class="coluna font-weight-bold pt-4">Desmontagem</span></div>
+        <div class="col-md" (click)="ordenar('preco_saida_atual')">
+          <span class="coluna font-weight-bold pt-4">Desmontagem</span>
+          <i class="material-icons" *ngIf="coluna === 'preco_saida_atual' ">{{ seta }}</i>
+        </div>
         <div class="col-md"><span class="coluna font-weight-bold pt-2">Parâmetro Montagem</span></div>
       </div>
       <br>
           <div class="row" *ngFor='let d of dados_aux; let i = index'>
-              <div class="card card-block">
+                  <mat-card class="card card-block">
                 <div class="col-sm-2">
-                  <!-- {{d[0].preco_entrada_atual}}
-                  {{d[0].asa_superior.Strike}} -->
                     <span class="card-text font-weight-bold" style="font-size: 12px"> {{ d.asa_inferior.Strike }}</span><div class="quadrado"><span class="text-center font-weight-bold" style="font-size:12px">+1</span></div><br>
                     <span class="card-text font-weight-bold" style="font-size: 12px"> {{ d.miolo.Strike }}</span><div class="quadrado"><span class="text-center font-weight-bold" style="font-size:12px">-2</span></div><br>
                     <span class="card-text font-weight-bold" style="font-size: 12px"> {{ d.asa_superior.Strike }}</span><div class="quadrado"><span class="text-center font-weight-bold" style="font-size:12px">+1</span></div><br>
@@ -98,6 +104,6 @@
                       </button>
                     </mat-menu>
                   </div>
-              </div>
+                </mat-card>
             </div>
 </div>

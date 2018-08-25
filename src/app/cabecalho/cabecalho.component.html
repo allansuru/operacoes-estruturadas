@@ -1,0 +1,22 @@
+<div class="row mt-5" *ngIf='cabecalho'>
+    <mat-card class="col-md border border-dark m-2 rounded"> 
+        <mat-card-title >Ação: {{ cabecalho[0].$value }}</mat-card-title>
+        <mat-card-content class="text-center font-weight-bold"><h2>{{ cabecalho[1].$value }}</h2></mat-card-content>
+       </mat-card>
+     <mat-card class="col-md border border-dark m-2 rounded"> 
+        <mat-card-title>Variação</mat-card-title>
+        <mat-card-content class="text-center font-weight-bold"><h2>{{ cabecalho[4].$value }}</h2></mat-card-content>
+       </mat-card>
+       <mat-card class="col-md border border-dark m-2 rounded"> 
+        <mat-card-title>Volatilidade</mat-card-title>
+        <mat-card-content class="text-center font-weight-bold"><h2>{{ cabecalho[5].$value }}%</h2></mat-card-content>
+       </mat-card>
+       <mat-card class="col-md border border-dark m-2 rounded"> 
+        <mat-card-title>Taxa de Juros</mat-card-title>
+        <mat-card-content class="text-center font-weight-bold"><h2>{{ cabecalho[2].$value }}%</h2></mat-card-content>
+       </mat-card>
+       <mat-card class="col-md border border-dark m-2 rounded"> 
+        <mat-card-title>Última Atualização</mat-card-title>
+        <mat-card-content class="text-center font-weight-bold"><h2>{{ cabecalho[3].$value }}</h2></mat-card-content>
+       </mat-card>
+</div>

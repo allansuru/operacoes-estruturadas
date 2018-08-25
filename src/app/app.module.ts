@@ -20,13 +20,15 @@ import { ButterflyComponent } from './abas/butterfly/butterfly.component';
 import { ButterflyService } from './service/butterfly.service';
 import { CabecalhoService } from './service/cabecalho.service';
 import { CalendarButterflyService } from './service/calendar-buttlerfly.service';
+import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 
 @NgModule({
 
   declarations: [
     AppComponent,
     CalendarButterflyComponent,
-    ButterflyComponent
+    ButterflyComponent,
+    CabecalhoComponent
   ],
   imports: [
     BrowserModule,

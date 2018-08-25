@@ -15,14 +15,17 @@
     </div>
   <div class="row polaroid shadow p-1 mb-2 bg-white rounded">
       <div class="col-md"><span class="serie">{{ serie }}</span></div>
-      <div class="col-md"><span class="coluna font-weight-bold pt-4">Montagem</span></div>
+      <div class="col-md">
+              <mat-icon> arrow_drop_down</mat-icon>
+        <span class="coluna font-weight-bold pt-4">Montagem</span>
+      </div>
       <div class="col-md"><span class="coluna font-weight-bold pt-1">Preço Atual</span></div>
       <div class="col-md"><span class="coluna font-weight-bold pt-4">Desmontagem</span></div>
       <div class="col-md"><span class="coluna font-weight-bold pt-2">Parâmetro Montagem</span></div>
     </div>
     <br>
         <div class="row" style="height: 135px" *ngFor='let d of dados_aux; let i = index'>
-            <div class="card card-block">
+            <mat-card class="card card-block">
               <div class="col-sm-2" style="position: relative; bottom: 15px">
                   <span class="card-text font-weight-bold" style="font-size: 12px;position: relative;top:15px"> {{ d.asa_inferior.Strike }}</span>
                   <div class="quadrado" style="top: 16px;"><span class="text-center font-weight-bold" style="font-size:12px">-1</span></div>
@@ -105,6 +108,6 @@
                     </button>
                   </mat-menu>
                 </div>
-            </div>
+              </mat-card>
           </div>
 </div>

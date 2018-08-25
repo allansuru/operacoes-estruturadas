@@ -2,6 +2,7 @@ import { Butterfly } from './../../models/butterfly';
 import { Component, OnInit, Input } from '@angular/core';
 import { ButterflyService } from '../../service/butterfly.service';
 
+import * as _ from 'underscore';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'butterfly',
@@ -10,8 +11,10 @@ import { ButterflyService } from '../../service/butterfly.service';
 })
 export class ButterflyComponent implements OnInit {
 
-  @Input() dados;
-
+  dados;
+  ordem = false;
+  coluna = '';
+  seta = '';
   dados_aux: Butterfly[] = [];
   serie = 'I';
 
@@ -26,6 +29,7 @@ export class ButterflyComponent implements OnInit {
     this.servico.getButterflyI()
     .subscribe(itens => {
       this.dados_aux = itens;
+      this.dados = itens;
       console.log('Butterfly: ', this.dados_aux);
     });
   }
@@ -42,6 +46,18 @@ export class ButterflyComponent implements OnInit {
     .subscribe(itens => {
       this.dados_aux = itens;
     });
+  }
+
+  ordenar(coluna: string) {
+    this.ordem = !this.ordem;
+    this.coluna = coluna;
+    if (this.ordem) {
+      this.seta = 'arrow_drop_down';
+      this.dados_aux = _.sortBy(this.dados_aux, coluna);
+    } else {
+      this.seta = 'arrow_drop_up';
+      this.dados_aux = this.dados_aux.reverse();
+    }
   }
 
 
