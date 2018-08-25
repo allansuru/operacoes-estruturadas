@@ -17,10 +17,12 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import { MaterialModule } from './material.module/material.module';
 import { CalendarButterflyComponent } from './abas/calendar-butterfly/calendar-butterfly.component';
 import { ButterflyComponent } from './abas/butterfly/butterfly.component';
-import { ButterflyService } from './service/butterfly.service';
-import { CabecalhoService } from './service/cabecalho.service';
-import { CalendarButterflyService } from './service/calendar-buttlerfly.service';
+import { ButterflyService } from './services/butterfly.service';
+import { CabecalhoService } from './services/cabecalho.service';
+import { CalendarButterflyService } from './services/calendar-buttlerfly.service';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
+import { RatioTemporalCallComponent } from './abas/ratio-temporal-call/ratio-temporal-call.component';
+import { RatioTemporalCallService } from './services/ratio-temporal-call.service';
 
 @NgModule({
 
@@ -28,7 +30,8 @@ import { CabecalhoComponent } from './cabecalho/cabecalho.component';
     AppComponent,
     CalendarButterflyComponent,
     ButterflyComponent,
-    CabecalhoComponent
+    CabecalhoComponent,
+    RatioTemporalCallComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { CabecalhoComponent } from './cabecalho/cabecalho.component';
   providers: [
     ButterflyService,
     CabecalhoService,
-    CalendarButterflyService
+    CalendarButterflyService,
+    RatioTemporalCallService
   ],
   bootstrap: [AppComponent]
 })

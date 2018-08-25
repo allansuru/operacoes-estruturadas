@@ -1,8 +1,8 @@
 import { Butterfly } from './../../models/butterfly';
 import { Component, OnInit, Input } from '@angular/core';
-import { ButterflyService } from '../../service/butterfly.service';
-
+import { ButterflyService } from '../../services/butterfly.service';
 import * as _ from 'underscore';
+
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'butterfly',
@@ -64,6 +64,7 @@ export class ButterflyComponent implements OnInit {
   changeSerie(e) {
     this.serie = e.value;
     this.dados_aux = [];
+    this.seta = '';
 
     if (this.serie === 'I') {
         this.getButterflyI();

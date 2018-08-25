@@ -1,4 +1,4 @@
-import { CabecalhoService } from './service/cabecalho.service';
+import { CabecalhoService } from './services/cabecalho.service';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { MatTabChangeEvent } from '@angular/material';
@@ -23,21 +23,19 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.butterfly();
+    this.setAba(this.aba);
     this.getCabecalho();
   }
   tabChanged = (tabChangeEvent: MatTabChangeEvent): void => {
     // console.log('tabChangeEvent => ', tabChangeEvent);
     // console.log('index => ', tabChangeEvent.index);
      if (tabChangeEvent.tab.textLabel === 'Calendar Butterfly') {
-        this.calendarButerfly();
+         this.setAba(tabChangeEvent.tab.textLabel);
      } else if (tabChangeEvent.tab.textLabel === 'Butterfly') {
-       this.butterfly();
+         this.setAba(tabChangeEvent.tab.textLabel);
+     } else if (tabChangeEvent.tab.textLabel === 'Ratio Temporal - Call') {
+         this.setAba(tabChangeEvent.tab.textLabel);
      }
-  }
-
-  butterfly() {
-      this.aba = 'Butterfly';
   }
 
   getCabecalho() {
@@ -47,10 +45,10 @@ export class AppComponent implements OnInit {
     });
   }
 
-  calendarButerfly() {
-    this.aba = 'Calendar Butterfly';
+ setAba(aba) {
+    this.aba = aba;
+ }
 
-  }
 
 
 

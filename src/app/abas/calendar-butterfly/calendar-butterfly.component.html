@@ -15,12 +15,15 @@
     </div>
   <div class="row polaroid shadow p-1 mb-2 bg-white rounded">
       <div class="col-md"><span class="serie">{{ serie }}</span></div>
-      <div class="col-md">
-              <mat-icon> arrow_drop_down</mat-icon>
+      <div class="col-md" (click)="ordenar('preco_entrada_atual')">
         <span class="coluna font-weight-bold pt-4">Montagem</span>
+        <i class="material-icons" *ngIf="coluna === 'preco_entrada_atual' ">{{ seta }}</i>
       </div>
       <div class="col-md"><span class="coluna font-weight-bold pt-1">Preço Atual</span></div>
-      <div class="col-md"><span class="coluna font-weight-bold pt-4">Desmontagem</span></div>
+      <div class="col-md"  (click)="ordenar('preco_saida_atual')">
+        <span class="coluna font-weight-bold pt-4">Desmontagem</span>
+        <i class="material-icons" *ngIf="coluna === 'preco_saida_atual' ">{{ seta }}</i>
+      </div>
       <div class="col-md"><span class="coluna font-weight-bold pt-2">Parâmetro Montagem</span></div>
     </div>
     <br>

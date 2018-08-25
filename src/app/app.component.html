@@ -61,9 +61,11 @@
                 <butterfly *ngIf="aba === 'Butterfly'"></butterfly>
               </mat-tab>
               <mat-tab label="Calendar Butterfly">
-                  <calendar-butterfly *ngIf="aba === 'Calendar Butterfly'" [dados]="dados"></calendar-butterfly>
+                  <calendar-butterfly *ngIf="aba === 'Calendar Butterfly'"></calendar-butterfly>
               </mat-tab>
-              <mat-tab label="Ratio Temporal"> Content 3 </mat-tab>
+              <mat-tab label="Ratio Temporal - Call">
+                <ratio-temporal-call *ngIf="aba === 'Ratio Temporal - Call'" ></ratio-temporal-call>
+              </mat-tab>
             </mat-tab-group>
 
           </div>

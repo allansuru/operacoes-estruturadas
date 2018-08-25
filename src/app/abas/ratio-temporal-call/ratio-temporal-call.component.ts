@@ -1,14 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { CalendarButterflyService } from '../../services/calendar-buttlerfly.service';
+import { Component, OnInit } from '@angular/core';
+import { RatioTemporalCallService } from '../../services/ratio-temporal-call.service';
 import * as _ from 'underscore';
 
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'calendar-butterfly',
-  templateUrl: './calendar-butterfly.component.html',
-  styleUrls: ['./calendar-butterfly.component.scss']
+  selector: 'ratio-temporal-call',
+  templateUrl: './ratio-temporal-call.component.html',
+  styleUrls: ['./ratio-temporal-call.component.scss']
 })
-export class CalendarButterflyComponent implements OnInit {
+export class RatioTemporalCallComponent implements OnInit {
 
   ordem = false;
   coluna = '';
@@ -16,34 +16,35 @@ export class CalendarButterflyComponent implements OnInit {
   dados_aux: any [];
   serie = 'H/I';
 
-  constructor(public calendarButService: CalendarButterflyService) { }
+  constructor(public ratioCallService: RatioTemporalCallService) { }
 
   ngOnInit() {
-
-   this.getCalendarButterflyH_I();
+    this.getRatioCallH_I();
   }
 
-  getCalendarButterflyH_I() {
-    this.calendarButService.getCalendarButterflyH_I()
+  getRatioCallH_I() {
+    this.ratioCallService.getRatioTemporalCallH_I()
     .subscribe(itens => {
       this.dados_aux = itens;
       console.log('Calendar-Butterfly: ', this.dados_aux);
     });
   }
 
-  getCalendrButterflyI_J() {
-    this.calendarButService.getCalendarButterflyI_J()
+  getRatioCallI_J() {
+    this.ratioCallService.getRatioTemporalCallI_J()
     .subscribe(itens => {
       this.dados_aux = itens;
     });
   }
 
-  getButterflyJ_K() {
-    this.calendarButService.getCalendarButterflyJ_K()
+  getRatioCallJ_K() {
+    this.ratioCallService.getRatioTemporalCallJ_K()
     .subscribe(itens => {
       this.dados_aux = itens;
     });
   }
+
+
 
   ordenar(coluna: string) {
     this.ordem = !this.ordem;
@@ -63,11 +64,11 @@ export class CalendarButterflyComponent implements OnInit {
     this.seta = '';
 
     if (this.serie === 'H/I') {
-        this.getCalendarButterflyH_I();
+        this.getRatioCallH_I();
     } else if (this.serie === 'I/J') {
-      this.getCalendrButterflyI_J();
+      this.getRatioCallI_J();
     } else if (this.serie === 'J/K') {
-      this.getButterflyJ_K();
+      this.getRatioCallJ_K();
     }
 
   }
