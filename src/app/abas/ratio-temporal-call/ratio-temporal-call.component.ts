@@ -3,7 +3,6 @@ import { RatioTemporalCallService } from '../../services/ratio-temporal-call.ser
 import * as _ from 'underscore';
 
 @Component({
-  // tslint:disable-next-line:component-selector
   selector: 'ratio-temporal-call',
   templateUrl: './ratio-temporal-call.component.html',
   styleUrls: ['./ratio-temporal-call.component.scss']
@@ -26,7 +25,7 @@ export class RatioTemporalCallComponent implements OnInit {
     this.ratioCallService.getRatioTemporalCallH_I()
     .subscribe(itens => {
       this.dados_aux = itens;
-      console.log('Calendar-Butterfly: ', this.dados_aux);
+      console.log('Radio Call: ', this.dados_aux);
     });
   }
 

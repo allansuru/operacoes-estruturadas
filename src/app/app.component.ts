@@ -35,6 +35,8 @@ export class AppComponent implements OnInit {
          this.setAba(tabChangeEvent.tab.textLabel);
      } else if (tabChangeEvent.tab.textLabel === 'Ratio Temporal - Call') {
          this.setAba(tabChangeEvent.tab.textLabel);
+     } else if (tabChangeEvent.tab.textLabel === 'Ratio Temporal - Put') {
+        this.setAba(tabChangeEvent.tab.textLabel);
      }
   }
 
@@ -48,8 +50,5 @@ export class AppComponent implements OnInit {
  setAba(aba) {
     this.aba = aba;
  }
-
-
-
 
 }

@@ -23,6 +23,8 @@ import { CalendarButterflyService } from './services/calendar-buttlerfly.service
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { RatioTemporalCallComponent } from './abas/ratio-temporal-call/ratio-temporal-call.component';
 import { RatioTemporalCallService } from './services/ratio-temporal-call.service';
+import { RatioTemporalPutComponent } from './abas/ratio-temporal-put/ratio-temporal-put.component';
+import { RatioTemporalPutService } from './services/ratio-temporal-put.service';
 
 @NgModule({
 
@@ -31,7 +33,8 @@ import { RatioTemporalCallService } from './services/ratio-temporal-call.service
     CalendarButterflyComponent,
     ButterflyComponent,
     CabecalhoComponent,
-    RatioTemporalCallComponent
+    RatioTemporalCallComponent,
+    RatioTemporalPutComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { RatioTemporalCallService } from './services/ratio-temporal-call.service
     ButterflyService,
     CabecalhoService,
     CalendarButterflyService,
-    RatioTemporalCallService
+    RatioTemporalCallService,
+    RatioTemporalPutService
   ],
   bootstrap: [AppComponent]
 })
