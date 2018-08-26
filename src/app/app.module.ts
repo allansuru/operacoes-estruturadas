@@ -14,17 +14,22 @@ import { ReactiveFormsModule, FormsModule } from '../../node_modules/@angular/fo
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import { MaterialModule } from './material.module/material.module';
+
 import { CalendarButterflyComponent } from './abas/calendar-butterfly/calendar-butterfly.component';
 import { ButterflyComponent } from './abas/butterfly/butterfly.component';
-import { ButterflyService } from './services/butterfly.service';
-import { CabecalhoService } from './services/cabecalho.service';
-import { CalendarButterflyService } from './services/calendar-buttlerfly.service';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { RatioTemporalCallComponent } from './abas/ratio-temporal-call/ratio-temporal-call.component';
-import { RatioTemporalCallService } from './services/ratio-temporal-call.service';
 import { RatioTemporalPutComponent } from './abas/ratio-temporal-put/ratio-temporal-put.component';
+import { StraddleCobertoComponent } from './abas/straddle-coberto/straddle-coberto.component';
+
+import { CalendarButterflyService } from './services/calendar-buttlerfly.service';
+import { ButterflyService } from './services/butterfly.service';
+import { CabecalhoService } from './services/cabecalho.service';
+import { RatioTemporalCallService } from './services/ratio-temporal-call.service';
 import { RatioTemporalPutService } from './services/ratio-temporal-put.service';
+import { StraddleCobertoService } from './services/straddle-coberto.service';
+
+import { MaterialModule } from './material.module/material.module';
 
 @NgModule({
 
@@ -34,7 +39,8 @@ import { RatioTemporalPutService } from './services/ratio-temporal-put.service';
     ButterflyComponent,
     CabecalhoComponent,
     RatioTemporalCallComponent,
-    RatioTemporalPutComponent
+    RatioTemporalPutComponent,
+    StraddleCobertoComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +52,7 @@ import { RatioTemporalPutService } from './services/ratio-temporal-put.service';
     MaterialModule,
     AngularFontAwesomeModule,
     RouterModule.forRoot([
-      { path: 'Home', component: AppComponent},
+      { path: '', component: AppComponent},
     ])
   ],
   providers: [
@@ -54,7 +60,8 @@ import { RatioTemporalPutService } from './services/ratio-temporal-put.service';
     CabecalhoService,
     CalendarButterflyService,
     RatioTemporalCallService,
-    RatioTemporalPutService
+    RatioTemporalPutService,
+    StraddleCobertoService
   ],
   bootstrap: [AppComponent]
 })

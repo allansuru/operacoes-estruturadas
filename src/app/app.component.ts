@@ -14,7 +14,7 @@ import { CalendarButerfly } from './models/calendar-butterfly';
 })
 export class AppComponent implements OnInit {
 
-  dados: CalendarButerfly[];
+
   aba = 'Butterfly'; // vou start com a butterfly
   cabecalho: any[];
 
@@ -37,6 +37,8 @@ export class AppComponent implements OnInit {
          this.setAba(tabChangeEvent.tab.textLabel);
      } else if (tabChangeEvent.tab.textLabel === 'Ratio Temporal - Put') {
         this.setAba(tabChangeEvent.tab.textLabel);
+     } else if (tabChangeEvent.tab.textLabel === 'Straddle Coberto') {
+       this.setAba(tabChangeEvent.tab.textLabel);
      }
   }
 

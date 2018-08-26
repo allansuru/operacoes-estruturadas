@@ -1,0 +1,27 @@
+@import '../../css/theme.scss';
+
+
+.triangulo1{
+    background-image: url(../../css/imgs/triangulo1.png);
+    background-repeat: no-repeat;
+    width: 42px;
+    height: 42px;
+
+}
+
+.triangulo2 {
+    background-image: url(../../css/imgs/triangulo2.png);
+    background-repeat: no-repeat;
+    width: 42px;
+    height: 42px;
+
+}
+
+h3 {
+    margin: 0px;
+    position: relative;
+    display: inline;
+    font-weight: bold;
+    top: 5px;
+    margin: 5px;
+}
