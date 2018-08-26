@@ -4,17 +4,19 @@
 .triangulo1{
     background-image: url(../../css/imgs/triangulo1.png);
     background-repeat: no-repeat;
-    width: 42px;
-    height: 42px;
-
+    width: 24px;
+    height: 24px;
+    display: inline-block;
 }
 
 .triangulo2 {
     background-image: url(../../css/imgs/triangulo2.png);
     background-repeat: no-repeat;
-    width: 42px;
-    height: 42px;
-
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+    bottom: 25px;
 }
 
 h3 {

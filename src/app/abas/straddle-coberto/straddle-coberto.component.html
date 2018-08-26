@@ -29,64 +29,64 @@
     <br>
         <div class="row" *ngFor='let d of dados_aux; let i = index'>
                 <mat-card class="card card-block">
-              <div class="col-sm-2">
-                  <span class="card-text font-weight-bold" style="font-size: 12px"> {{ d.asa_inferior.Strike }}</span><div class="triangulo1"><span class="text-center font-weight-bold" style="font-size:12px"></span></div><br>
-                  <span class="card-text font-weight-bold" style="font-size: 12px"> {{ d.miolo.Strike }}</span><div class="triangulo2"><span class="text-center font-weight-bold" style="font-size:12px"></span></div><br>
+              <div class="col-sm-1">
+                  <span class="card-text font-weight-bold" style="font-size: 12px; position:relative; top:20px;right:10px"> {{ d.call_linha.Strike }}</span><div class="triangulo1 ml-4"></div><br>
+                  <span class="card-text font-weight-bold" style="font-size: 12px; position:relative;right:10px"> {{ d.call_cobertura.Strike }}</span><div class="triangulo2 ml-4"></div>
               </div>
-                <div class="col-sm-3">
+                <div class="col-sm-4 mt-3">
                     <div class="quadrado-2 rounded">
                       <span class="text-center font-weight-bold" style="background-color:red; color: white; font-size: 12px">V</span>
                     </div>
-                    <span style="font-size: 12px"> {{ d.asa_inferior.Codigo }} </span>
-                    <span  class="ml-2" style="color: blue;font-size: 12px"><small>1 x </small> {{ d.asa_inferior.Valor_Ask }} </span>
+                    <span style="font-size: 12px"> {{ d.call_linha.Codigo }} </span>
+                    <span  class="ml-2" style="color: blue;font-size: 12px"><small>1 x </small> {{ d.call_linha.Valor_Bid}} </span>
                     <span class="text-center font-weight-bold;font-size: 12px"><h3>/</h3></span>
                     <div class="quadrado-2 rounded">
                       <span class="text-center font-weight-bold"  style="background-color:red; color: white;font-size: 12px">V</span>
                     </div>
-                    <span style="font-size: 12px"> {{ d.asa_superior.Codigo }} </span>
-                    <span  class="ml-2" style="color: blue;font-size: 12px"><small>1 x </small> {{ d.asa_superior.Valor_Ask }} </span>
+                    <span style="font-size: 12px"> {{ d.put_linha.Codigo }} </span>
+                    <span  class="ml-2" style="color: blue;font-size: 12px"><small>1 x </small> {{ d.put_linha.Valor_Bid }} </span>
                     <br>
                     <div class="quadrado-2 rounded">
                       <span class="text-center font-weight-bold;font-size: 12px"  style="background-color:green; color: white;font-size: 12px">C</span>
                     </div>
-                    <span style="font-size: 12px"> {{ d.miolo.Codigo }} </span>
-                    <span  class="ml-2" style="color: blue;font-size: 12px"><small>2 x </small> {{ d.miolo.Valor_Bid }} </span>
+                    <span style="font-size: 12px"> {{ d.call_cobertura.Codigo }} </span>
+                    <span  class="ml-2" style="color: blue;font-size: 12px"><small>2 x </small> {{ d.call_cobertura.Valor_Ask }} </span>
                     <br>
                     <br>
                 </div>
-                <div class="col-sm-2 mt-4">
+                <div class="col-sm-1 mt-3">
                   <span class="font-weight-bold;font-size: 12px" style="color:red;font-size: 12px">
                     {{ d.preco_entrada_atual }}
                   </span>
                   <br><small><span class="text-center" style="color:red;font-size: 11px">(Pagar)</span></small></div>
-                <div class="col-sm-2">
+                <div class="col-sm-4 mt-3">
                     <div class="quadrado-2 rounded">
                       <span class="text-center font-weight-bold;font-size: 12px" style="background-color:green; color: white;font-size: 12px">C</span>
                     </div>
-                    <span style="font-size: 12px"> {{ d.asa_inferior.Codigo }} </span>
-                    <span  class="ml-2" style="color: blue;font-size: 12px"><small>1 x</small> {{ d.asa_inferior.Valor_Bid }} </span>
+                    <span style="font-size: 12px"> {{ d.call_linha.Codigo }} </span>
+                    <span  class="ml-2" style="color: blue;font-size: 12px"><small>1 x</small> {{ d.call_linha.Valor_Ask }} </span>
                     <span class="text-center font-weight-bold;font-size: 12px"><h3>/</h3></span>
                     <div class="quadrado-2 rounded">
                       <span class="text-center font-weight-bold;font-size: 12px"  style="background-color:green; color: white;font-size: 12px">C</span>
                     </div>
-                    <span style="font-size: 12px"> {{ d.asa_superior.Codigo }} </span>
-                    <span  class="ml-2" style="color: blue;font-size: 12px"><small>1 x</small> {{ d.asa_superior.Valor_Bid }} </span>
+                    <span style="font-size: 12px"> {{ d.put_linha.Codigo }} </span>
+                    <span  class="ml-2" style="color: blue;font-size: 12px"><small>1 x</small> {{ d.put_linha.Valor_Ask  }} </span>
                     <br>
                     <div class="quadrado-2 rounded">
                       <span class="text-center font-weight-bold"  style="background-color:red; color: white">V</span>
                     </div>
-                    <span style="font-size: 12px"> {{ d.miolo.Codigo }} </span>
-                    <span  class="ml-2" style="color: blue;font-size: 12px"><small>2 x</small> {{ d.miolo.Valor_Ask }} </span>
+                    <span style="font-size: 12px"> {{ d.call_cobertura.Codigo }} </span>
+                    <span  class="ml-2" style="color: blue;font-size: 12px"><small>2 x</small> {{ d.call_cobertura.Valor_Bid }} </span>
                     <br>
                 </div>  
-                <div class="col-sm-1 mt-4">
+                <div class="col-sm-1 mt-3">
                   <span class="font-weight-bold;font-size: 12px" style="color: green;font-size: 12px">{{ d.preco_saida_atual }}</span>
                   <br><small><span class="text-center" style="color:green;font-size: 11px">(Receber)</span></small>
                 </div>
-                <div class="col-sm-1 mt-4">
+                <!-- <div class="col-sm-1 mt-3">
                   <span class="font-weight-bold;font-size: 12px" style="color:blue;font-size: 12px">{{ d.preco_entrada_parametro }}</span>
                   <br><small><span class="text-center" style="color:blue;font-size: 11px">(Pagar)</span></small>
-                </div>
+                </div> -->
                 <div class="col-sm-1">
                   <button mat-icon-button [matMenuTriggerFor]="menu">
                     <mat-icon>more_vert</mat-icon>
