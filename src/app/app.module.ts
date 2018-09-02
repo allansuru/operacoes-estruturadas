@@ -35,6 +35,7 @@ import { TravaHorizontalLinhaComponent } from './abas/trava-horizontal-linha/tra
 import { TravaHorizontalLinhaService } from './services/trava-horizontal-linha.service';
 import { NavegacaoComponent } from './navegacao/navegacao.component';
 import { AssinanteModule } from './assinante/assinante.module';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
 
@@ -47,7 +48,8 @@ import { AssinanteModule } from './assinante/assinante.module';
     RatioTemporalPutComponent,
     StraddleCobertoComponent,
     TravaHorizontalLinhaComponent,
-    NavegacaoComponent
+    NavegacaoComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

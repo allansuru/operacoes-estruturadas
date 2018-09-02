@@ -1,0 +1,15 @@
+<ng-container *ngIf='assinante?.isAssinante'>
+<button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>equalizer</mat-icon>
+      <span>Relatórios</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>notifications_on</mat-icon>
+      <span>Favoritos</span>
+    </button>
+  </mat-menu>
+</ng-container>
