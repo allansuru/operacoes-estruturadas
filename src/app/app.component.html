@@ -21,34 +21,7 @@
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <mat-icon class="ml-2">dialpad</mat-icon><span class="ml-2">Operações Estruturadas</span> </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" routerLink='/Home'>Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+      <navegacao></navegacao>
   <div class="container">
     <br>
         <app-cabecalho [cabecalho]='cabecalho'></app-cabecalho>
@@ -72,6 +45,9 @@
                <mat-tab label="Straddle Coberto">
                   <straddle-coberto *ngIf="aba === 'Straddle Coberto'"></straddle-coberto>
                </mat-tab>
+               <mat-tab label="Trava Horizontal de Linha">
+                <trava-horizontal-linha *ngIf="aba === 'Trava Horizontal de Linha'"></trava-horizontal-linha>
+             </mat-tab>
             </mat-tab-group>
 
           </div>

@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <mat-icon class="ml-2">dialpad</mat-icon><span class="ml-2">Operações Estruturadas</span> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+          <ng-template #anonymousUser>
+              <li class="nav-item">
+                <a class="nav-link" (click)="login()">Login</a>
+              </li>
+            </ng-template>
+      
+            <li ngbDropdown *ngIf="assinante; else anonymousUser" class="nav-item dropdown">
+              <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">{{ assinante.name }}</a>
+              <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+                <ng-container *ngIf="assinante">
+                    <a class="dropdown-item">Meus Favoritos</a>
+                    <!-- <a class="dropdown-item"  routerLink="/admin/products">Manage Products</a> -->
+                </ng-container>
+      
+                <a class="dropdown-item" (click)="logout()">Log Out</a>
+              </div>
+            </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { MatTabChangeEvent } from '@angular/material';
 import { CalendarButerfly } from './models/calendar-butterfly';
+import { UserService } from './assinante/services/user.service';
+import { AuthService } from './assinante/services/auth.service';
+import { Router } from '@angular/router';
 
 
 
@@ -19,8 +22,24 @@ export class AppComponent implements OnInit {
   cabecalho: any[];
 
   constructor(
-    public cabecalhoService: CabecalhoService
-  ) {}
+    public cabecalhoService: CabecalhoService,
+    private userService: UserService,
+    private auth: AuthService,
+    router: Router
+  ) {
+    auth.user$.subscribe(user => {
+      debugger
+      if (!user) { return; }
+        userService.save(user);
+
+        const returnUrl = localStorage.getItem('returnUrl');
+        if (!returnUrl) { return; }
+
+        localStorage.removeItem('returnUrl');
+        router.navigateByUrl(returnUrl);
+
+    });
+  }
 
   ngOnInit() {
     this.setAba(this.aba);
@@ -39,7 +58,9 @@ export class AppComponent implements OnInit {
         this.setAba(tabChangeEvent.tab.textLabel);
      } else if (tabChangeEvent.tab.textLabel === 'Straddle Coberto') {
        this.setAba(tabChangeEvent.tab.textLabel);
-     }
+     } else if (tabChangeEvent.tab.textLabel === 'Trava Horizontal de Linha') {
+      this.setAba(tabChangeEvent.tab.textLabel);
+    }
   }
 
   getCabecalho() {

@@ -10,6 +10,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule, FormsModule } from '../../node_modules/@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,6 +31,10 @@ import { RatioTemporalPutService } from './services/ratio-temporal-put.service';
 import { StraddleCobertoService } from './services/straddle-coberto.service';
 
 import { MaterialModule } from './material.module/material.module';
+import { TravaHorizontalLinhaComponent } from './abas/trava-horizontal-linha/trava-horizontal-linha.component';
+import { TravaHorizontalLinhaService } from './services/trava-horizontal-linha.service';
+import { NavegacaoComponent } from './navegacao/navegacao.component';
+import { AssinanteModule } from './assinante/assinante.module';
 
 @NgModule({
 
@@ -40,7 +45,9 @@ import { MaterialModule } from './material.module/material.module';
     CabecalhoComponent,
     RatioTemporalCallComponent,
     RatioTemporalPutComponent,
-    StraddleCobertoComponent
+    StraddleCobertoComponent,
+    TravaHorizontalLinhaComponent,
+    NavegacaoComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +58,8 @@ import { MaterialModule } from './material.module/material.module';
     FormsModule,
     MaterialModule,
     AngularFontAwesomeModule,
+    AssinanteModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: AppComponent},
     ])
@@ -61,7 +70,8 @@ import { MaterialModule } from './material.module/material.module';
     CalendarButterflyService,
     RatioTemporalCallService,
     RatioTemporalPutService,
-    StraddleCobertoService
+    StraddleCobertoService,
+    TravaHorizontalLinhaService
   ],
   bootstrap: [AppComponent]
 })

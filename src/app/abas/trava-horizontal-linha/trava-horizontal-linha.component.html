@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md m-4">
+        <mat-radio-group 
+        [(ngModel)]="serie"
+        (change)="changeSerie($event)">
+          <mat-radio-button value="H/I">H/I</mat-radio-button>
+          <mat-radio-button value="I/J">I/J</mat-radio-button>
+          <mat-radio-button value="J/K">J/K</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <div class="col-md m-4">
+          <mat-checkbox>Mostras somente strikes</mat-checkbox>
+      </div>
+    </div>
+  <div class="row polaroid shadow p-1 mb-2 bg-white rounded">
+      <div class="col-md"><span class="serie">{{ serie }}</span></div>
+      <div class="col-md" (click)="ordenar('preco_entrada_atual')">
+        <span class="coluna font-weight-bold pt-4">Montagem</span>
+        <i class="material-icons" *ngIf="coluna === 'preco_entrada_atual' ">{{ seta }}</i>
+      </div>
+      <div class="col-md"><span class="coluna font-weight-bold pt-1">Preço Atual</span></div>
+      <div class="col-md" (click)="ordenar('preco_saida_atual')">
+        <span class="coluna font-weight-bold pt-4">Desmontagem</span>
+        <i class="material-icons" *ngIf="coluna === 'preco_saida_atual' ">{{ seta }}</i>
+      </div>
+      <div class="col-md"><span class="coluna font-weight-bold pt-2">Parâmetro Montagem</span></div>
+    </div>
+    <br>
+        <div class="row" *ngFor='let d of dados_aux; let i = index'>
+                <mat-card class="card card-block">
+              <div class="col-sm-2">
+                  <span class="card-text font-weight-bold" style="font-size: 11px"> {{ d.curta.Strike }}</span>
+                  <div class="quadrado"><span class="text-center font-weight-bold" style="font-size:10px">-1</span></div>
+                  <div class="quadrado" style="position: relative;right: 12px;"><span class="text-center font-weight-bold" style="font-size:10px">+1</span></div>
+              </div>
+                <div class="col-sm-3">
+                    <div class="quadrado-2 rounded">
+                      <span class="text-center font-weight-bold" style="background-color:red; color: white; font-size: 10px">V</span>
+                    </div>
+                    <span style="font-size: 10px"> {{ d.curta.Codigo }} </span>
+                    <span  class="ml-2" style="color: blue;font-size: 10px"><small>1 x </small> {{ d.curta.Valor_Bid  }} </span>
+                    <div class="quadrado-2 rounded">
+                      <span class="text-center font-weight-bold;font-size: 10px"  style="background-color:green; color: white;font-size: 10px">C</span>
+                    </div>
+                    <span style="font-size: 10px"> {{ d.longa.Codigo }} </span>
+                    <span  class="ml-2" style="color: blue;font-size: 10px"><small>2 x </small> {{ d.longa.Valor_Ask}} </span>
+
+                </div>
+                <div class="col-sm-1 mt-1">
+                  <span class="font-weight-bold;font-size: 11px" style="color:red;font-size: 10px">
+                    {{ d.preco_entrada_atual }}
+                  </span>
+                  <br><small><span class="text-center" style="color:red;font-size: 11px">(Pagar)</span></small></div>
+                <div class="col-sm-3">
+                    <div class="quadrado-2 rounded">
+                      <span class="text-center font-weight-bold;font-size: 10px" style="background-color:green; color: white;font-size: 10px">C</span>
+                    </div>
+                    <span style="font-size: 10px"> {{ d.curta.Codigo }} </span>
+                    <span  class="ml-2" style="color: blue;font-size: 10px"><small>1 x</small> {{ d.curta.Valor_Ask}} </span>
+                    <div class="quadrado-2 rounded">
+                      <span class="text-center font-weight-bold"  style="background-color:red; color: white;font-size: 10px">V</span>
+                    </div>
+                    <span style="font-size: 10px"> {{ d.longa.Codigo }} </span>
+                    <span  class="ml-2" style="color: blue;font-size: 10px"><small>2 x</small> {{ d.longa.Valor_Bid }} </span>
+                </div>  
+                <div class="col-sm-1 mt-q">
+                  <span class="font-weight-bold;font-size: 11px" style="color: green;font-size: 10px">{{ d.preco_saida_atual }}</span>
+                  <br><small><span class="text-center" style="color:green;font-size: 11px">(Receber)</span></small>
+                </div>
+                <div class="col-sm-1 mt-1">
+                  <span class="font-weight-bold;font-size: 11px" style="color:blue;font-size: 10px">{{ d.preco_entrada_parametro }}</span>
+                  <br><small><span class="text-center" style="color:blue;font-size: 11px">(Pagar)</span></small>
+                </div>
+                <div class="col-sm-1">
+                  <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon>more_vert</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item>
+                      <mat-icon>equalizer</mat-icon>
+                      <span>Relatórios</span>
+                    </button>
+                    <button mat-menu-item>
+                      <mat-icon>notifications_on</mat-icon>
+                      <span>Favoritos</span>
+                    </button>
+                  </mat-menu>
+                </div>
+              </mat-card>
+          </div>
+</div>
